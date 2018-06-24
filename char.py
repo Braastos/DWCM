@@ -106,6 +106,18 @@ class UpdateShit:
                             ruestung = int(data["Inventory"][item]["ruestung"]) + ruestung
             return ruestung
 
+    def updateDamage(self,data,ui):
+        damage = 0
+        if data is not None:
+            if "Inventory" in data:
+                # for i in range(len(data["Inventory"])):
+                for item in data["Inventory"]:
+                    tocheck = data["Inventory"][item]
+                    if "dict" == type(tocheck).__name__:
+                        if "schaden" in tocheck:
+                            damage = int(data["Inventory"][item]["schaden"]) + damage
+            return damage
+
 
 
 
@@ -211,7 +223,7 @@ class Stats:
         except:
             print("Failed to load current live")
         try:
-            self.schadenGM = data["schadenGM"]
+            self.schadenGM = data["schadenBonus"]
         except:
             print("Failed to load current GM Bonus Damage")
 
@@ -237,6 +249,7 @@ class Stats:
                      ui.charismaBonusGM.objectName(): self.charismaGM,
                      ui.ruestungBonus.objectName(): self.ruestungGM,
                      ui.lebenAktuell.objectName(): self.lebenAktuell,
+                     ui.schadenBonus.objectName(): self.schadenGM
                      }
         else:
             data.update({ui.klassenAuswahl.objectName(): self.klasse,
@@ -257,6 +270,7 @@ class Stats:
                          ui.charismaBonusGM.objectName(): self.charismaGM,
                          ui.ruestungBonus.objectName(): self.ruestungGM,
                          ui.lebenAktuell.objectName(): self.lebenAktuell,
+                         ui.schadenBonus.objectName(): self.schadenGM
                          })
         return data
 
@@ -284,6 +298,7 @@ class Stats:
         self.leben = values[1] + self.konstitution
         self.belastung = values[2] + self.staerke
         self.ruestungGM = ui.ruestungBonus.value()
+        self.schadenGM = ui.schadenBonus.value()
         self.belastungAktuell = 0
 
 

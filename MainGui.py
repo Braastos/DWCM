@@ -754,7 +754,7 @@ class Ui_DungeonWorldCharakter(object):
         self.actionInventarloeschen.setObjectName("actionInventarloeschen")
 
         self.retranslateUi(DungeonWorldCharakter)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(DungeonWorldCharakter)
 
     def retranslateUi(self, DungeonWorldCharakter):

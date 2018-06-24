@@ -48,7 +48,9 @@ def updateinv(inv,data):
     ui.buendelPfeileGewicht.setText(str(update.calculateWeight(inv.pfeile,3)))
     ui.belastungAktuell.setText(str(update.updateWeight(data,ui)))
     newruestung = update.updateRuestung(data,ui)+ ui.ruestungBonus.value()
+    newdamage = update.updateDamage(data,ui) + ui.schadenBonus.value()
     ui.ruestungPunkte.setText(str(newruestung))
+    ui.schadenWert.setText(str(newdamage))
 
 
 def inituivalues(stats):
@@ -416,7 +418,7 @@ def StartUpdate():
     ui.buendelPfeileMenge.valueChanged.connect(save)
     ui.rucksackButton.clicked.connect(openrucksack)
     ui.ruestungBonus.valueChanged.connect(save)
-    #ui.schadenBonus.valueChanged.connect()
+    ui.schadenBonus.valueChanged.connect(save)
 
 
 
