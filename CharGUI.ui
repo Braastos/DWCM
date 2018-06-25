@@ -1835,6 +1835,24 @@
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>573</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDatei">
+    <property name="title">
+     <string>Datei</string>
+    </property>
+    <addaction name="actionCharakter_loeschen"/>
+    <addaction name="actionProgramm_beenden"/>
+   </widget>
+   <addaction name="menuDatei"/>
+  </widget>
   <action name="actionLaden">
    <property name="text">
     <string>Laden</string>
@@ -1843,6 +1861,21 @@
   <action name="actionInventarloeschen">
    <property name="text">
     <string>Inventar löschen</string>
+   </property>
+  </action>
+  <action name="actionCharakter_loeschen">
+   <property name="text">
+    <string>Charakter löschen</string>
+   </property>
+  </action>
+  <action name="actionProgramm_neustarten">
+   <property name="text">
+    <string>Programm neustarten</string>
+   </property>
+  </action>
+  <action name="actionProgramm_beenden">
+   <property name="text">
+    <string>Programm beenden</string>
    </property>
   </action>
  </widget>

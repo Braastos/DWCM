@@ -1,5 +1,6 @@
 import sys
 import math
+import os
 from PyQt5.QtWidgets import QApplication,QMainWindow,QDialog
 from PyQt5.QtGui import QStandardItemModel,QStandardItem
 from MainGui import Ui_DungeonWorldCharakter
@@ -26,6 +27,24 @@ inventory = None
 ui_inventory = None
 
 
+def kill_programm():
+    save()
+    sys.exit()
+
+
+def deleteSave():
+    os.remove("save.json")
+    reloadUI()
+
+def reloadUI():
+    stats = Stats()
+    data = tojson.loadfromsave()
+    stats.load(data)
+    inv = Inventory()
+    print(data)
+    inv.load(data)
+    inituivalues(stats)
+    initinvvalues(inv, data)
 
 def updateui(stats):
     update = UpdateShit()
@@ -87,7 +106,7 @@ def initinvvalues(inv,data):
 
 
 def save():
-    data = tojson.loadfromjson()
+    data = tojson.loadfromsave()
     stats = Stats()
     inv = Inventory()
     stats.update(ui)
@@ -105,7 +124,7 @@ def loadItemStats():
 def itemMinusOne():
     model = ui_inventory.inventoryView.model()
     selected = []
-    data = tojson.loadfromjson()
+    data = tojson.loadfromsave()
     indexes = ui_inventory.inventoryView.selectionModel().selectedRows()
     for i in sorted(indexes):
         row = i.row()
@@ -139,7 +158,7 @@ def itemMinusOne():
 def itemMinusFive():
     model = ui_inventory.inventoryView.model()
     selected = []
-    data = tojson.loadfromjson()
+    data = tojson.loadfromsave()
     indexes = ui_inventory.inventoryView.selectionModel().selectedRows()
     for i in sorted(indexes):
         row = i.row()
@@ -172,7 +191,7 @@ def itemMinusFive():
 def itemPlusOne():
     model = ui_inventory.inventoryView.model()
     selected = []
-    data = tojson.loadfromjson()
+    data = tojson.loadfromsave()
     indexes = ui_inventory.inventoryView.selectionModel().selectedRows()
     for i in sorted(indexes):
         row = i.row()
@@ -206,7 +225,7 @@ def itemPlusOne():
 def itemPlusFive():
     model = ui_inventory.inventoryView.model()
     selected = []
-    data = tojson.loadfromjson()
+    data = tojson.loadfromsave()
     indexes = ui_inventory.inventoryView.selectionModel().selectedRows()
     for i in sorted(indexes):
         row = i.row()
@@ -244,7 +263,7 @@ def itemPlusFive():
 
 def saveItem():
     x = Item()
-    data = tojson.loadfromjson()
+    data = tojson.loadfromsave()
     global ui_editor
     x.create(ui_editor)
     data = x.save(data)
@@ -254,7 +273,7 @@ def saveItem():
 
 def updateListView():
     global ui_inventory
-    data = tojson.loadfromjson()
+    data = tojson.loadfromsave()
     model = QStandardItemModel()
     if model.rowCount() is not 0:
         model.removeRows(0,model.rowCount())
@@ -419,20 +438,15 @@ def StartUpdate():
     ui.rucksackButton.clicked.connect(openrucksack)
     ui.ruestungBonus.valueChanged.connect(save)
     ui.schadenBonus.valueChanged.connect(save)
+    ui.actionCharakter_loeschen.triggered.connect(deleteSave)
+    ui.actionProgramm_beenden.triggered.connect(kill_programm)
 
 
 
 def main():
     ui.setupUi(window)
     window.show()
-    stats = Stats()
-    data = tojson.loadfromjson()
-    stats.load(data)
-    inv = Inventory()
-    print(data)
-    inv.load(data)
-    inituivalues(stats)
-    initinvvalues(inv,data)
+    reloadUI()
     StartUpdate()
     sys.exit(app.exec_())
 

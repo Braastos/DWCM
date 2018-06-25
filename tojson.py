@@ -2,14 +2,23 @@ import json
 import os
 
 
-def loadfromjson():
+def loadfromsave():
     try:
         jsonfile = open("save.json", "r",encoding='UTF-8')
     except:
-        jsonfile = open("save.json", "w+",encoding='UTF-8')
-        jsonfile.close()
+        defaultdata = loadfromdefault()
+        savetojson(defaultdata)
         jsonfile = open("save.json", "r",encoding='UTF-8')
     try:
+        data = json.load(jsonfile)
+        jsonfile.close()
+        return data
+    except:
+        return None
+
+def loadfromdefault():
+    try:
+        jsonfile = open("default.json", "r", encoding='UTF-8')
         data = json.load(jsonfile)
         jsonfile.close()
         return data
