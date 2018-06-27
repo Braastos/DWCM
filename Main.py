@@ -11,9 +11,13 @@ import ctypes
 from char import Stats,Inventory,Item, UpdateShit
 
 
+try:
+    myappid = 'braastos.dungeonworld.charaktermanager.first' # arbitrary string
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except:
+    pass
 
-myappid = 'braastos.dungeonworld.charaktermanager.first' # arbitrary string
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+language = "en"
 
 
 app = QApplication(sys.argv)
@@ -305,61 +309,71 @@ def updateListView():
             l.append(" ")
 
             if data["Inventory"][inv]["staerke"] is not 0:
-                l.append("Stärke: ")
+                l.append(ui.staerke.text())
+                l.append(": ")
                 if data["Inventory"][inv]["staerke"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["staerke"]))
                 l.append(" ")
             if data["Inventory"][inv]["geschick"] is not 0:
-                l.append("Geschick: ")
+                l.append(ui.geschick.text())
+                l.append(": ")
                 if data["Inventory"][inv]["geschick"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["geschick"]))
                 l.append(" ")
             if data["Inventory"][inv]["konstitution"] is not 0:
-                l.append("Konstitution: ")
+                l.append(ui.konstitution.text())
+                l.append(": ")
                 if data["Inventory"][inv]["konstitution"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["konstitution"]))
                 l.append(" ")
             if data["Inventory"][inv]["intelligenz"] is not 0:
-                l.append("Intelligenz: ")
+                l.append(ui.intelligenz.text())
+                l.append(": ")
                 if data["Inventory"][inv]["intelligenz"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["intelligenz"]))
                 l.append(" ")
             if data["Inventory"][inv]["weisheit"] is not 0:
-                l.append("Weisheit: ")
+                l.append(ui.weisheit.text())
+                l.append(": ")
                 if data["Inventory"][inv]["weisheit"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["weisheit"]))
                 l.append(" ")
             if data["Inventory"][inv]["charisma"] is not 0:
-                l.append("Charisma: ")
+                l.append(ui.charisma.text())
+                l.append(": ")
                 if data["Inventory"][inv]["charisma"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["charisma"]))
                 l.append(" ")
             if data["Inventory"][inv]["ruestung"] is not 0:
-                l.append("Rüstung: ")
+                l.append(ui.ruestung.text())
+                l.append(": ")
                 if data["Inventory"][inv]["ruestung"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["ruestung"]))
                 l.append(" ")
             if data["Inventory"][inv]["schaden"] is not 0:
-                l.append("Schaden: ")
+                l.append(ui.schaden.text())
+                l.append(": ")
                 if data["Inventory"][inv]["schaden"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["schaden"]))
                 l.append(" ")
             if data["Inventory"][inv]["leben"] is not 0:
-                l.append("Leben: ")
+                l.append(ui.lebenText.text())
+                l.append(": ")
                 if data["Inventory"][inv]["leben"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["leben"]))
                 l.append(" ")
             if data["Inventory"][inv]["belastung"] is not 0:
-                l.append("Belastung: ")
+                l.append(ui.belastungText.text())
+                l.append(": ")
                 if data["Inventory"][inv]["belastung"] > 0:
                     l.append("+")
                 l.append(str(data["Inventory"][inv]["belastung"]))
@@ -440,6 +454,7 @@ def StartUpdate():
     ui.schadenBonus.valueChanged.connect(save)
     ui.actionCharakter_loeschen.triggered.connect(deleteSave)
     ui.actionProgramm_beenden.triggered.connect(kill_programm)
+    #ui.actionEnglisch.triggered.connect(language = "en")
 
 
 

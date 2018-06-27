@@ -115,6 +115,8 @@ class Ui_itemEditor(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.menge.setFont(font)
+        self.menge.setMinimum(1)
+        self.menge.setProperty("value", 1)
         self.menge.setObjectName("menge")
         self.gridLayout.addWidget(self.menge, 1, 1, 1, 1)
         self.staerkeText = QtWidgets.QLabel(self.frame)

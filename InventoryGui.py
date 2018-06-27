@@ -62,6 +62,7 @@ class Ui_inventoryManager(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(12)
         self.inventoryView.setFont(font)
+        self.inventoryView.setAlternatingRowColors(True)
         self.inventoryView.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.inventoryView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.inventoryView.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)

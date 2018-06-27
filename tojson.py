@@ -25,6 +25,15 @@ def loadfromdefault():
     except:
         return None
 
+def loadfromtranslate():
+    try:
+        jsonfile = open("translate.json", "r", encoding='UTF-8')
+        data = json.load(jsonfile)
+        jsonfile.close()
+        return data
+    except:
+        return None
+
 def savetojson(data):
     jsonfile = open("save.json", "w+",encoding='UTF-8')
     json.dump(data,jsonfile)

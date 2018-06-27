@@ -1851,7 +1851,15 @@
     <addaction name="actionCharakter_loeschen"/>
     <addaction name="actionProgramm_beenden"/>
    </widget>
+   <widget class="QMenu" name="menuSprache">
+    <property name="title">
+     <string>Sprache</string>
+    </property>
+    <addaction name="actionEnglisch"/>
+    <addaction name="actionDeutsch"/>
+   </widget>
    <addaction name="menuDatei"/>
+   <addaction name="menuSprache"/>
   </widget>
   <action name="actionLaden">
    <property name="text">
@@ -1876,6 +1884,16 @@
   <action name="actionProgramm_beenden">
    <property name="text">
     <string>Programm beenden</string>
+   </property>
+  </action>
+  <action name="actionEnglisch">
+   <property name="text">
+    <string>Englisch</string>
+   </property>
+  </action>
+  <action name="actionDeutsch">
+   <property name="text">
+    <string>Deutsch</string>
    </property>
   </action>
  </widget>
