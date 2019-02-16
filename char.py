@@ -102,7 +102,7 @@ class UpdateShit:
                 for item in data["Inventory"]:
                     tocheck = data["Inventory"][item]
                     if "dict" == type(tocheck).__name__:
-                        if "ruestung" in tocheck:
+                        if "ruestung" in tocheck and data["Inventory"][item]["ausruestung"]:
                             ruestung = int(data["Inventory"][item]["ruestung"]) + ruestung
             return ruestung
 
@@ -114,7 +114,7 @@ class UpdateShit:
                 for item in data["Inventory"]:
                     tocheck = data["Inventory"][item]
                     if "dict" == type(tocheck).__name__:
-                        if "schaden" in tocheck:
+                        if "schaden" in tocheck and data["Inventory"][item]["ausruestung"]:
                             damage = int(data["Inventory"][item]["schaden"]) + damage
             return damage
 
@@ -386,6 +386,7 @@ class Item:
     schaden = 0
     leben = 0
     belastung = 0
+    ausruestung = False
 
     def create(self, ui):
         self.name = ui.gegenstand.text()
@@ -402,6 +403,7 @@ class Item:
         self.schaden = ui.schaden.value()
         self.leben = ui.leben.value()
         self.belastung = ui.belastung.value()
+        self.ausruestung = ui.ausruestung.isChecked()
 
     def save(self,data):
         if "Inventory" in data:
@@ -436,6 +438,9 @@ class Item:
                 item[self.name].update(stat)
 
                 stat = {"belastung": self.belastung}
+                item[self.name].update(stat)
+
+                stat = {"ausruestung": self.ausruestung}
                 item[self.name].update(stat)
 
                 data["Inventory"].update(item)
@@ -473,6 +478,9 @@ class Item:
                 item[self.name].update(stat)
 
                 stat = {"belastung": self.belastung}
+                item[self.name].update(stat)
+
+                stat = {"ausruestung": self.ausruestung}
                 item[self.name].update(stat)
 
                 data["Inventory"].update(item)

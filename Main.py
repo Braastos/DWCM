@@ -395,7 +395,7 @@ def openrucksack():
     global inventory
     global ui_inventory
     inventory = QDialog()
-    ui_inventory = Ui_inventoryManager()#extended()
+    ui_inventory = Ui_inventoryManager()  # extended()
     ui_inventory.setupUi(inventory)
     inventory.show()
     updateListView()
@@ -424,6 +424,7 @@ def closeEditor():
     itemeditor.close()
     itemeditor = None
     ui_editor = None
+    save()
     print("Closed")
 
 
@@ -449,7 +450,7 @@ def StartUpdate():
     ui.abenteuerausruestungMenge.valueChanged.connect(save)
     ui.heiltraenkeMenge.valueChanged.connect(save)
     ui.buendelPfeileMenge.valueChanged.connect(save)
-    ui.rucksackButton.clicked.connect(openrucksack)
+#    ui.rucksackButton.clicked.connect(openrucksack)
     ui.ruestungBonus.valueChanged.connect(save)
     ui.schadenBonus.valueChanged.connect(save)
     ui.actionCharakter_loeschen.triggered.connect(deleteSave)
