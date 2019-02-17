@@ -85,7 +85,27 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="0" colspan="5">
+   <item row="1" column="1">
+    <widget class="QPushButton" name="minusFiveButton">
+     <property name="toolTip">
+      <string>Verringert die Menge des aktuelle ausgewähltem Items um 5</string>
+     </property>
+     <property name="toolTipDuration">
+      <number>0</number>
+     </property>
+     <property name="text">
+      <string>-5</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QPushButton" name="editButton">
+     <property name="text">
+      <string>Bearbeiten</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="6">
     <widget class="QScrollArea" name="scrollArea">
      <property name="font">
       <font>
@@ -129,19 +149,6 @@
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="minusFiveButton">
-     <property name="toolTip">
-      <string>Verringert die Menge des aktuelle ausgewähltem Items um 5</string>
-     </property>
-     <property name="toolTipDuration">
-      <number>0</number>
-     </property>
-     <property name="text">
-      <string>-5</string>
-     </property>
     </widget>
    </item>
   </layout>

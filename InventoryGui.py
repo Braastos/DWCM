@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'InventoryGUI.ui'
+# Form implementation generated from reading ui file 'InventoryGui.ui'
 #
 # Created by: PyQt5 UI code generator 5.10.1
 #
@@ -44,6 +44,13 @@ class Ui_inventoryManager(object):
         self.plusFiveButton.setToolTipDuration(0)
         self.plusFiveButton.setObjectName("plusFiveButton")
         self.gridLayout.addWidget(self.plusFiveButton, 1, 4, 1, 1)
+        self.minusFiveButton = QtWidgets.QPushButton(inventoryManager)
+        self.minusFiveButton.setToolTipDuration(0)
+        self.minusFiveButton.setObjectName("minusFiveButton")
+        self.gridLayout.addWidget(self.minusFiveButton, 1, 1, 1, 1)
+        self.editButton = QtWidgets.QPushButton(inventoryManager)
+        self.editButton.setObjectName("editButton")
+        self.gridLayout.addWidget(self.editButton, 1, 5, 1, 1)
         self.scrollArea = QtWidgets.QScrollArea(inventoryManager)
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -69,11 +76,7 @@ class Ui_inventoryManager(object):
         self.inventoryView.setObjectName("inventoryView")
         self.gridLayout_2.addWidget(self.inventoryView, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 5)
-        self.minusFiveButton = QtWidgets.QPushButton(inventoryManager)
-        self.minusFiveButton.setToolTipDuration(0)
-        self.minusFiveButton.setObjectName("minusFiveButton")
-        self.gridLayout.addWidget(self.minusFiveButton, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 6)
 
         self.retranslateUi(inventoryManager)
         QtCore.QMetaObject.connectSlotsByName(inventoryManager)
@@ -91,4 +94,15 @@ class Ui_inventoryManager(object):
         self.plusFiveButton.setText(_translate("inventoryManager", "+5"))
         self.minusFiveButton.setToolTip(_translate("inventoryManager", "Verringert die Menge des aktuelle ausgewähltem Items um 5"))
         self.minusFiveButton.setText(_translate("inventoryManager", "-5"))
+        self.editButton.setText(_translate("inventoryManager", "Bearbeiten"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    inventoryManager = QtWidgets.QDialog()
+    ui = Ui_inventoryManager()
+    ui.setupUi(inventoryManager)
+    inventoryManager.show()
+    sys.exit(app.exec_())
 

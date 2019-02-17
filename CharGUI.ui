@@ -890,6 +890,9 @@
       </property>
      </widget>
      <widget class="QLabel" name="belastungAktuell">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>340</x>
@@ -901,8 +904,10 @@
       <property name="font">
        <font>
         <pointsize>18</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
+        <strikeout>true</strikeout>
+        <kerning>false</kerning>
        </font>
       </property>
       <property name="layoutDirection">
@@ -953,6 +958,23 @@
       </property>
       <property name="text">
        <string>0</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="GewichtProvi">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>580</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
      </widget>
     </widget>
